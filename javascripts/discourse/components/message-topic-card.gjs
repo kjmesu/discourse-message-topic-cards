@@ -10,6 +10,7 @@ import avatar from "discourse/helpers/avatar";
 import formatDate from "discourse/helpers/format-date";
 import { wantsNewWindow } from "discourse/lib/intercept-click";
 import DiscourseURL from "discourse/lib/url";
+import { eq } from "discourse/truth-helpers";
 
 export default class MessageTopicCard extends Component {
   @service currentUser;
