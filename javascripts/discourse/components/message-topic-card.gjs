@@ -21,7 +21,10 @@ export default class MessageTopicCard extends Component {
     const currentUsername = this.currentUser?.username;
     const featuredUsers = topic.featuredUsers || [];
 
-    return featuredUsers.filter(u => u.username !== currentUsername);
+    return featuredUsers.filter(poster => {
+      const username = poster.user?.username || poster.username;
+      return username !== currentUsername;
+    });
   }
 
   get featuredUser() {
@@ -39,11 +42,12 @@ export default class MessageTopicCard extends Component {
 
     const filteredUsers = this.filteredParticipants;
     if (filteredUsers.length > 0) {
-      return filteredUsers[0];
+      return filteredUsers[0].user || filteredUsers[0];
     }
 
     const featuredUsers = topic.featuredUsers || [];
-    return featuredUsers[0] || topic.creator;
+    const firstUser = featuredUsers[0];
+    return (firstUser?.user || firstUser) || topic.creator;
   }
 
   @action
@@ -93,7 +97,7 @@ export default class MessageTopicCard extends Component {
         {{#if this.featuredUser}}
           <div class="message-topic-card__participant">
             {{#each this.filteredParticipants as |poster|}}
-              {{avatar poster avatarTemplatePath="avatar_template" usernamePath="username" namePath="name" imageSize="small"}}
+              {{avatar poster avatarTemplatePath="user.avatar_template" usernamePath="user.username" namePath="user.name" imageSize="small"}}
             {{/each}}
             <UserLink @user={{this.featuredUser}} class="message-topic-card__username">
               {{this.featuredUser.username}}
