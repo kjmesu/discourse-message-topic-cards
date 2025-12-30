@@ -54,7 +54,7 @@ export default class MessageTopicCard extends Component {
         <div class="message-topic-card__header">
           <h3 class="message-topic-card__title">
             <TopicStatus @topic={{@topic}} @context="topic-list" />
-            <TopicLink @topic={{@topic}} class="raw-link raw-topic-link" />
+            <TopicLink @topic={{@topic}} class="title raw-link" />
           </h3>
         </div>
 
