@@ -6,6 +6,7 @@
 
     .topic-item-metadata {
       margin-left: 0 !important;
+      width: 100%;
 
       .main-link {
         display: none !important;
@@ -20,6 +21,10 @@
       }
     }
   }
+}
+
+.message-topic-card {
+  max-width: none;
 }
 
 .message-topic-card__link {
