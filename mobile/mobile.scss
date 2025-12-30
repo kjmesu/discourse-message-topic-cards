@@ -1,5 +1,10 @@
 .message-topic-cards-enabled {
   .topic-list-item {
+    .topic-list-data {
+      max-width: none !important;
+      width: 100%;
+    }
+
     .pull-left {
       display: none !important;
     }
@@ -34,4 +39,10 @@
 
 .message-topic-card__title {
   font-size: var(--font-0);
+}
+
+.message-topic-card__excerpt {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
 }
