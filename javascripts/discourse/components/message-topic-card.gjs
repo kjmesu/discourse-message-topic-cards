@@ -87,7 +87,9 @@ export default class MessageTopicCard extends Component {
             {{#each @topic.featuredUsers as |poster|}}
               {{avatar poster avatarTemplatePath="user.avatar_template" usernamePath="user.username" namePath="user.name" imageSize="small"}}
             {{/each}}
-            <UserLink @user={{this.featuredUser}} class="message-topic-card__username" />
+            <UserLink @user={{this.featuredUser}} class="message-topic-card__username">
+              {{this.featuredUser.username}}
+            </UserLink>
           </div>
         {{/if}}
 
