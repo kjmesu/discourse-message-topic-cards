@@ -1,36 +1,42 @@
 .message-topic-cards-enabled {
-  .topic-list {
-    .topic-list-header {
+  .topic-list-header {
+    display: none !important;
+  }
+
+  .topic-list-body {
+    display: block;
+    border-top: none;
+  }
+
+  .topic-list-item {
+    display: block;
+    padding: 0;
+    border: none;
+
+    &:not(:last-child) {
+      margin-bottom: 1.25em;
+    }
+
+    td.posters,
+    td.posts,
+    td.posts-map,
+    td.num,
+    td.likes,
+    td.views,
+    td.activity,
+    td.age {
       display: none !important;
     }
 
-    .topic-list-body {
-      display: block;
-      border-top: none;
-    }
-
-    .topic-list-item {
-      display: block;
+    td.main-link {
+      display: block !important;
       padding: 0;
-      border: none;
 
-      &:not(:last-child) {
-        margin-bottom: 1.25em;
+      > .link-top-line,
+      > .link-bottom-line,
+      > .topic-excerpt {
+        display: none !important;
       }
-    }
-
-    .bulk-select,
-    .posters,
-    .posts,
-    .num,
-    .likes,
-    .views,
-    .activity {
-      display: none !important;
-    }
-
-    .main-link {
-      display: none !important;
     }
   }
 }
