@@ -45,4 +45,9 @@
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-word;
+
+  .topic-excerpt {
+    width: 100% !important;
+    max-width: 100%;
+  }
 }
