@@ -116,14 +116,13 @@
 .message-topic-card__participant {
   display: inline-flex;
   align-items: center;
-  gap: 0.5em;
   font-size: var(--font-down-1);
   color: var(--primary-high);
 
   .avatar {
     width: 20px;
     height: 20px;
-    margin-right: 0.25em;
+    margin-right: 4px;
 
     &:last-of-type {
       margin-right: 0.5em;
