@@ -1,15 +1,13 @@
 .message-topic-cards-enabled {
   .topic-list-item {
-    width: 100%;
+    display: block !important;
+    width: 100% !important;
 
     td.topic-list-data {
+      display: block !important;
       max-width: none !important;
       width: 100% !important;
-      padding: 0 !important;
-    }
-
-    td.main-link {
-      width: 100%;
+      padding: 0 11px !important;
     }
 
     .pull-left {
@@ -21,8 +19,9 @@
     }
 
     .topic-item-metadata {
+      display: block !important;
       margin-left: 0 !important;
-      width: 100%;
+      width: 100% !important;
       max-width: none !important;
 
       .main-link {
@@ -43,7 +42,6 @@
 .message-topic-card {
   max-width: none;
   width: 100%;
-  padding: 0 11px;
 }
 
 .message-topic-card__link {
