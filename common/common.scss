@@ -138,13 +138,6 @@
 
 .message-topic-card__username {
   font-weight: 500;
-  color: var(--primary-high);
-  text-decoration: none;
-
-  &:hover {
-    color: var(--tertiary);
-    text-decoration: underline;
-  }
 }
 
 .message-topic-card__excerpt {
