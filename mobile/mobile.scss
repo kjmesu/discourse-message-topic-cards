@@ -2,9 +2,10 @@
   .topic-list-item {
     width: 100%;
 
-    .topic-list-data {
+    td.topic-list-data {
       max-width: none !important;
-      width: 100%;
+      width: 100% !important;
+      padding: 0 !important;
     }
 
     td.main-link {
