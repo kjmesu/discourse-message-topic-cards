@@ -1,37 +1,36 @@
-.user-messages-page {
-  &.message-topic-cards-enabled {
-    .topic-list {
-      .topic-list-header {
-        display: none;
-      }
+.message-topic-cards-enabled {
+  .topic-list {
+    .topic-list-header {
+      display: none !important;
+    }
 
-      .topic-list-body {
-        display: block;
-        border-top: none;
-      }
+    .topic-list-body {
+      display: block;
+      border-top: none;
+    }
 
-      .topic-list-item {
-        display: block;
-        padding: 0;
-        border: none;
+    .topic-list-item {
+      display: block;
+      padding: 0;
+      border: none;
 
-        &:not(:last-child) {
-          margin-bottom: 1.25em;
-        }
+      &:not(:last-child) {
+        margin-bottom: 1.25em;
       }
+    }
 
-      .bulk-select,
-      .posters,
-      .posts,
-      .likes,
-      .views,
-      .activity {
-        display: none;
-      }
+    .bulk-select,
+    .posters,
+    .posts,
+    .num,
+    .likes,
+    .views,
+    .activity {
+      display: none !important;
+    }
 
-      .main-link {
-        display: none;
-      }
+    .main-link {
+      display: none !important;
     }
   }
 }
