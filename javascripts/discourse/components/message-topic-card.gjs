@@ -2,6 +2,7 @@ import Component from "@glimmer/component";
 import { on } from "@ember/modifier";
 import { action } from "@ember/object";
 import { service } from "@ember/service";
+import ParticipantGroups from "discourse/components/topic-list/participant-groups";
 import TopicExcerpt from "discourse/components/topic-list/topic-excerpt";
 import TopicLink from "discourse/components/topic-list/topic-link";
 import TopicStatus from "discourse/components/topic-status";
@@ -66,7 +67,19 @@ export default class MessageTopicCard extends Component {
           <h3 class="message-topic-card__title">
             <TopicStatus @topic={{@topic}} @context="topic-list" />
             <TopicLink @topic={{@topic}} class="title raw-link" />
+            {{#if @topic.featured_link}}
+              &nbsp;<a href={{@topic.featured_link}} class="topic-featured-link" target="_blank" rel="noopener noreferrer">{{@topic.featured_link}}</a>
+            {{/if}}
           </h3>
+          {{#if @topic.unseen}}
+            <span class="topic-post-badges">
+              &nbsp;<a href={{@topic.lastUnreadUrl}} title="new topic" class="badge badge-notification new-topic"> </a>
+            </span>
+          {{else if @topic.unread_posts}}
+            <span class="topic-post-badges">
+              &nbsp;<a href={{@topic.lastUnreadUrl}} class="badge badge-notification unread-posts" title="{{@topic.unread_posts}} unread posts">{{@topic.unread_posts}}</a>
+            </span>
+          {{/if}}
         </div>
 
         {{#if this.featuredUser}}
@@ -74,6 +87,10 @@ export default class MessageTopicCard extends Component {
             {{avatar this.featuredUser imageSize="small"}}
             <UserLink @user={{this.featuredUser}} class="message-topic-card__username" />
           </div>
+        {{/if}}
+
+        {{#if @topic.participant_groups}}
+          <ParticipantGroups @topic={{@topic}} />
         {{/if}}
 
         {{#if @topic.hasExcerpt}}
