@@ -118,6 +118,11 @@
     width: 20px;
     height: 20px;
   }
+
+  a[data-user-card]::after {
+    content: attr(data-user-card);
+    color: var(--primary-high);
+  }
 }
 
 .message-topic-card__username {
