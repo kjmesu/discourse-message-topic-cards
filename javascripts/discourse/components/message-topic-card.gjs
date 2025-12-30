@@ -16,6 +16,14 @@ import { eq } from "discourse/truth-helpers";
 export default class MessageTopicCard extends Component {
   @service currentUser;
 
+  get filteredParticipants() {
+    const topic = this.args.topic;
+    const currentUsername = this.currentUser?.username;
+    const featuredUsers = topic.featuredUsers || [];
+
+    return featuredUsers.filter(u => u.username !== currentUsername);
+  }
+
   get featuredUser() {
     const topic = this.args.topic;
     const currentUsername = this.currentUser?.username;
@@ -29,13 +37,13 @@ export default class MessageTopicCard extends Component {
       return posters[0]?.user;
     }
 
-    const featuredUsers = topic.featuredUsers || [];
-    if (featuredUsers.length > 0) {
-      const otherUser = featuredUsers.find(u => u.username !== currentUsername);
-      return otherUser || featuredUsers[0];
+    const filteredUsers = this.filteredParticipants;
+    if (filteredUsers.length > 0) {
+      return filteredUsers[0];
     }
 
-    return topic.creator;
+    const featuredUsers = topic.featuredUsers || [];
+    return featuredUsers[0] || topic.creator;
   }
 
   @action
@@ -84,8 +92,8 @@ export default class MessageTopicCard extends Component {
 
         {{#if this.featuredUser}}
           <div class="message-topic-card__participant">
-            {{#each @topic.featuredUsers as |poster|}}
-              {{avatar poster avatarTemplatePath="user.avatar_template" usernamePath="user.username" namePath="user.name" imageSize="small"}}
+            {{#each this.filteredParticipants as |poster|}}
+              {{avatar poster avatarTemplatePath="avatar_template" usernamePath="username" namePath="name" imageSize="small"}}
             {{/each}}
             <UserLink @user={{this.featuredUser}} class="message-topic-card__username">
               {{this.featuredUser.username}}
