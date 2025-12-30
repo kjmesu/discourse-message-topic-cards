@@ -18,22 +18,14 @@ export default class MessageTopicCard extends Component {
   get featuredUser() {
     const topic = this.args.topic;
     const currentUsername = this.currentUser?.username;
-    const featuredUsers = topic.featuredUsers || [];
-    const posters = topic.posters || [];
+    const featuredUsers = topic.featuredUsers;
 
-    const allUsers = [...featuredUsers];
-    posters.forEach(p => {
-      if (p.user && !allUsers.find(u => u.id === p.user.id)) {
-        allUsers.push(p.user);
-      }
-    });
-
-    if (topic.creator && !allUsers.find(u => u.id === topic.creator.id)) {
-      allUsers.unshift(topic.creator);
+    if (!featuredUsers || featuredUsers.length === 0) {
+      return topic.creator;
     }
 
-    const otherUser = allUsers.find(u => u.username !== currentUsername);
-    return otherUser || allUsers[0];
+    const otherUser = featuredUsers.find(u => u.username !== currentUsername);
+    return otherUser || featuredUsers[0];
   }
 
   @action
