@@ -22,9 +22,9 @@ export default class MessageTopicCard extends Component {
 
     const posters = topic.posters || [];
     if (posters.length > 0) {
-      const posterUser = posters.find(p => p.user?.username !== currentUsername);
-      if (posterUser?.user) {
-        return posterUser.user;
+      const otherUser = posters.find(p => p.user?.username !== currentUsername);
+      if (otherUser?.user) {
+        return otherUser.user;
       }
       return posters[0]?.user;
     }
