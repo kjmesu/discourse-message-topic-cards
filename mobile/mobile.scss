@@ -1,3 +1,27 @@
+.message-topic-cards-enabled {
+  .topic-list-item {
+    .pull-left {
+      display: none !important;
+    }
+
+    .topic-item-metadata {
+      margin-left: 0 !important;
+
+      .main-link {
+        display: none !important;
+      }
+
+      .pull-right {
+        display: none !important;
+      }
+
+      .topic-item-stats {
+        display: none !important;
+      }
+    }
+  }
+}
+
 .message-topic-card__link {
   padding: 1em;
   gap: 0.5em;
