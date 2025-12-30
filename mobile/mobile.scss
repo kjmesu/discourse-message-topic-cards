@@ -1,7 +1,13 @@
 .message-topic-cards-enabled {
   .topic-list-item {
+    width: 100%;
+
     .topic-list-data {
       max-width: none !important;
+      width: 100%;
+    }
+
+    td.main-link {
       width: 100%;
     }
 
