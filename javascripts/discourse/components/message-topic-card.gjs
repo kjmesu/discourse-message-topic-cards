@@ -28,23 +28,12 @@ export default class MessageTopicCard extends Component {
   }
 
   get featuredUser() {
-    const topic = this.args.topic;
-    const currentUsername = this.currentUser?.username;
-
-    const posters = topic.posters || [];
-    if (posters.length > 0) {
-      const otherUser = posters.find(p => p.user?.username !== currentUsername);
-      if (otherUser?.user) {
-        return otherUser.user;
-      }
-      return posters[0]?.user;
-    }
-
     const filteredUsers = this.filteredParticipants;
     if (filteredUsers.length > 0) {
       return filteredUsers[0].user || filteredUsers[0];
     }
 
+    const topic = this.args.topic;
     const featuredUsers = topic.featuredUsers || [];
     const firstUser = featuredUsers[0];
     return (firstUser?.user || firstUser) || topic.creator;
