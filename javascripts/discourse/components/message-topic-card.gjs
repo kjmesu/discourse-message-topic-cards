@@ -91,6 +91,10 @@ export default class MessageTopicCard extends Component {
             <UserLink @user={{this.featuredUser}} class="message-topic-card__username">
               {{this.featuredUser.username}}
             </UserLink>
+            <span class="message-topic-card__separator">•</span>
+            <span class="message-topic-card__activity">
+              {{formatDate @topic.bumpedAt format="tiny" noTitle="true"}}
+            </span>
           </div>
         {{/if}}
 
@@ -104,11 +108,8 @@ export default class MessageTopicCard extends Component {
           </div>
         {{/if}}
 
-        <div class="message-topic-card__meta">
-          <span class="message-topic-card__activity">
-            {{formatDate @topic.bumpedAt format="tiny" noTitle="true"}}
-          </span>
-          {{#if @topic.replyCount}}
+        {{#if @topic.replyCount}}
+          <div class="message-topic-card__meta">
             <span class="message-topic-card__replies">
               {{@topic.replyCount}}
               {{#if (eq @topic.replyCount 1)}}
@@ -117,8 +118,8 @@ export default class MessageTopicCard extends Component {
                 replies
               {{/if}}
             </span>
-          {{/if}}
-        </div>
+          </div>
+        {{/if}}
       </a>
     </article>
   </template>
