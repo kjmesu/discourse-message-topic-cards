@@ -93,7 +93,7 @@ export default class MessageTopicCard extends Component {
             </UserLink>
             <span class="message-topic-card__separator">•</span>
             <span class="message-topic-card__activity">
-              {{formatDate @topic.bumpedAt format="medium-with-ago" noTitle="true"}}
+              {{formatDate @topic.bumpedAt format="tiny" noTitle="true" leaveAgo="true"}}
             </span>
           </div>
         {{/if}}
