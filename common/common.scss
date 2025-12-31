@@ -117,7 +117,6 @@
 .message-topic-card__participant {
   display: flex;
   align-items: center;
-  gap: 0.5em;
   font-size: var(--font-down-1);
 
   .avatar {
@@ -133,11 +132,13 @@
 
 .message-topic-card__username {
   font-weight: 500;
+  margin-left: 0.5em;
 }
 
 .message-topic-card__separator {
   color: var(--primary-medium);
-  opacity: 0.5;
+  font-weight: 100;
+  margin: 0 .35em;
 }
 
 .message-topic-card__excerpt {
